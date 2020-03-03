@@ -84,7 +84,8 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+#apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins
@@ -143,3 +144,6 @@ spec:
       - name: jenkins-persistent-storage
         persistentVolumeClaim:
           claimName: jenkins-claim
+  selector:
+    matchLabels:
+      app: jenkins

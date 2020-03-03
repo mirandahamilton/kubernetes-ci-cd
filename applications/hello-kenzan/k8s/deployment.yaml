@@ -14,7 +14,8 @@ spec:
   type: NodePort
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
+#apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: hello-kenzan
@@ -23,6 +24,9 @@ metadata:
 spec:
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      app: hello-kenzan
   template:
     metadata:
       labels:
@@ -30,7 +34,7 @@ spec:
         tier: hello-kenzan
     spec:
       containers:
-      - image: 127.0.0.1:30400/hello-kenzan:$BUILD_TAG
+      - image: 192.168.99.100:32437/hello-kenzan:$BUILD_TAG
         name: hello-kenzan
         ports:
         - containerPort: 80
