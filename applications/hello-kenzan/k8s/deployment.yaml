@@ -15,7 +15,6 @@ spec:
 
 ---
 apiVersion: apps/v1
-#apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: hello-kenzan
@@ -34,8 +33,7 @@ spec:
         tier: hello-kenzan
     spec:
       containers:
-#      - image: 127.0.0.1:30400/hello-kenzan:$BUILD_TAG
-      - image: $BUILDIMG
+      - image: 127.0.0.1:32437/hello-kenzan:$BUILD_TAG
         name: hello-kenzan
         ports:
         - containerPort: 80
