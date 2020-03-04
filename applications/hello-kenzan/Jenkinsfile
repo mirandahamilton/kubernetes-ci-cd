@@ -4,7 +4,7 @@ node {
 
     env.DOCKER_API_VERSION="1.23" 
     appName = "hello-kenzan"
-    registryHost = "127.0.0.1:30400/"
+    registryHost = "127.0.0.1:32437/"
     imageName = "${registryHost}${appName}:latest"
    
     env.BUILDIMG=imageName
